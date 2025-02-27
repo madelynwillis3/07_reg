@@ -416,7 +416,9 @@ ggplot(reg_dfw,
 options(contrasts = c("contr.sum", "contr.poly"))
 
 # Model fitting
-mod3_quad 
+mod3_quad <- lmer(yield_mgha ~ (1|rep)
+                  + sr_ksha + I(sr_ksha^2),
+                  data = reg_dfw) #I(^2) is quadratic
 
 # Summary
 summary(mod3_quad)
